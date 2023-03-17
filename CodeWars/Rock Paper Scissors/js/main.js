@@ -9,18 +9,18 @@ rps('paper','paper') // Draw!
 
 */
 const rps = (p1, p2) => {
-    let r='rock'
-    let p='paper'
-    let s='scissors'
+    let rock='rock'
+    let paper='paper'
+    let scissors='scissors'
     let pone='Player 1 won!'
     let ptwo='Player 2 won!'
     if(p1==p2){
       return 'Draw!'
-      }else if(p1==r && p2==s) {
+      }else if(p1==rock && p2==scissors) {
       return pone
-      }else if(p1==p && p2==r){
+      }else if(p1==paper && p2==rock){
         return pone
-        } else if(p1==s && p2==p){
+        } else if(p1==scissors && p2==paper){
           return pone
         } else return ptwo   
           
