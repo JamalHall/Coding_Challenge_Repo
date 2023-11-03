@@ -17,7 +17,14 @@
 // So there are 11 digits 1 for the squares of numbers between 0 and 25.
 
 function nbDig(n, d) {
-  // your code
+  let size = null
+  numString = n.toString().split('')
+  for (num of numString) {
+    if (num <= d ) {
+      size += (num ** 2).toString().split('').length
+    }
+  }
+  return size
 }
 
 
