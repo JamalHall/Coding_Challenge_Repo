@@ -17,19 +17,20 @@
 // So there are 11 digits 1 for the squares of numbers between 0 and 25.
 
 function nbDig(n, d) {
-  let size = null
-  numString = n.toString().split('')
-  for (num of numString) {
-    if (num <= d ) {
-      size += (num ** 2).toString().split('').length
+  let num = [];
+  sum = 0
+    for(let i = 0; i <= n; i++){
+      let numSq = (i ** 2)
+      let digit = numSq.toString().split('').filter(e => +e == +d).reduce((a,b)=>+a+(+b),0)
+      console.log(digit)
+       sum += digit 
     }
-  }
-  return size
+  return sum
 }
 
 
 
 console.log(nbDig( 5750, 0),  4700, "n = 5750, d = 0");
-console.log(nbDig(11011, 2),  9481, "n = 11011, d = 2");
-console.log(nbDig(12224, 8),  7733, "n = 12224, d = 8");
-console.log(nbDig(11549, 1), 11905, "n = 11549, d = 1");
+//console.log(nbDig(11011, 2),  9481, "n = 11011, d = 2");
+//console.log(nbDig(12224, 8),  7733, "n = 12224, d = 8");
+//console.log(nbDig(11549, 1), 11905, "n = 11549, d = 1");
