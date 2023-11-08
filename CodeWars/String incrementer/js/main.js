@@ -17,12 +17,21 @@ foo099 -> foo100
 
 https://www.codewars.com/kata/54a91a4883a7de5d7800009c/train/javascript
 */
-function incrementString (string) {
-  number = string.split().filter(e => e == /^[0-9]$/).join()
-  string2 = string.split(number)[0]
-  number2 = +number + 1
-  console.log(string2, number2, string)
- return string+number
+function incrementString(string) {
+  let arrayString = string.split()
+  let number = 0
+  const regex = new RegExp(/^[0-9]$/)
+  for (var i = arrayString.length - 1; i >= 0; --i) {
+    if (arrayString[i] == regex && (+arrayString[i] >= 0 && +arrayString[i - 1] >= 0)) {
+      number+=arrayString[i]
+    } else if (+arrayString[i] == regex) {
+      number+=arrayString[i]
+   }
+  }
+  //arrayString.filter(e => e == /^[0-9]$/).join()
+  //string2 = string.split(number)[0]
+  
+ return number
 }
 
 console.log(incrementString("foobar000"), "foobar001")
