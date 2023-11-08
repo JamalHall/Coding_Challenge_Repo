@@ -1,33 +1,36 @@
 /* 
-Create a function that returns the lowest product of 4 consecutive digits in a number given as a string.
+Your job is to write a function which increments a string, to create a new string.
 
-This should only work if the number has 4 digits or more. If not, return "Number is too small".
+If the string already ends with a number, the number should be incremented by 1.
+If the string does not end with a number. the number 1 should be appended to the new string.
+Examples:
 
-Example
-lowestProduct("123456789") --> 24 (1x2x3x4)
-lowestProduct("35") --> "Number is too small"
+foo -> foo1
 
+foobar23 -> foobar24
+
+foo0042 -> foo0043
+
+foo9 -> foo10
+
+foo099 -> foo100
+
+https://www.codewars.com/kata/54a91a4883a7de5d7800009c/train/javascript
 */
- 
-function lowestProduct(input) { 
-const arr = [...input +''].map(Number)
-console.log(arr)
-if(arr.length < 4) return "Number is too small"
-let lowest=arr.reduce((pv,cv)=>pv*cv)
-console.log(lowest)
-arr.forEach((e,i) => { 
-  if(!arr[i+3]) return lowest
-  let curr = arr[i]*arr[i+1]*arr[i+2]*arr[i+3] 
-  lowest = curr<=lowest?curr:lowest   
-});
-return lowest
+function incrementString (string) {
+  number = string.split().filter(e => e == /^[0-9]$/).join()
+  string2 = string.split(number)[0]
+  number2 = +number + 1
+  console.log(string2, number2, string)
+ return string+number
 }
 
-console.log(lowestProduct("1234111"),4,"Numbers should be consecutives");  
-console.log(lowestProduct("123456789"),24); 
-console.log(lowestProduct("234567899"),120); 
-console.log(lowestProduct("2345611117899"),1);
-console.log(lowestProduct("333"),"Number is too small");
-console.log(lowestProduct("419030408"),0); 
-console.log(lowestProduct("4109702778"),0); 
-console.log(lowestProduct("1691719083"),0);
+console.log(incrementString("foobar000"), "foobar001")
+console.log(incrementString("foobar999"), "foobar1000")
+console.log(incrementString("foobar00999"), "foobar01000")
+console.log(incrementString("foo"), "foo1")
+console.log(incrementString("foobar001"), "foobar002")
+console.log(incrementString("foobar1"), "foobar2")
+console.log(incrementString("1"), "2")
+console.log(incrementString("009"), "010")
+console.log(incrementString("fo99obar99"), "fo99obar100")
