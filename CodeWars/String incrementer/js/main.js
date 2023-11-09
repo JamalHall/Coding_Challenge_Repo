@@ -18,28 +18,32 @@ foo099 -> foo100
 https://www.codewars.com/kata/54a91a4883a7de5d7800009c/train/javascript
 */
 function incrementString(string) {
-  let arrayString = string.split()
+  let arrayString = string.split('')
+  let concatString = string.split()
   let number = 0
-  const regex = new RegExp(/^[0-9]$/)
+  const regex = new RegExp("[0-9]",i)
   for (var i = arrayString.length - 1; i >= 0; --i) {
-    if (arrayString[i] == regex && (+arrayString[i] >= 0 && +arrayString[i - 1] >= 0)) {
-      number+=arrayString[i]
-    } else if (+arrayString[i] == regex) {
-      number+=arrayString[i]
+    console.log(arrayString[i], arrayString[i-1])
+    if (regex.test(+arrayString[i]) && regex.test(+arrayString[i-1])) {
+      number +=arrayString[i]
+      console.log("this")
+    } else if (regex.test(+arrayString[i])) {
+      console.log("that")
+      number += arrayString[i]
    }
   }
   //arrayString.filter(e => e == /^[0-9]$/).join()
   //string2 = string.split(number)[0]
-  
- return number
+  console.log(concatString,number) 
+ return +number+1
 }
 
 console.log(incrementString("foobar000"), "foobar001")
-console.log(incrementString("foobar999"), "foobar1000")
-console.log(incrementString("foobar00999"), "foobar01000")
-console.log(incrementString("foo"), "foo1")
-console.log(incrementString("foobar001"), "foobar002")
-console.log(incrementString("foobar1"), "foobar2")
-console.log(incrementString("1"), "2")
-console.log(incrementString("009"), "010")
-console.log(incrementString("fo99obar99"), "fo99obar100")
+// console.log(incrementString("foobar999"), "foobar1000")
+// console.log(incrementString("foobar00999"), "foobar01000")
+// console.log(incrementString("foo"), "foo1")
+// console.log(incrementString("foobar001"), "foobar002")
+// console.log(incrementString("foobar1"), "foobar2")
+// console.log(incrementString("1"), "2")
+// console.log(incrementString("009"), "010")
+// console.log(incrementString("fo99obar99"), "fo99obar100")
