@@ -32,14 +32,14 @@ function incrementString(string) {
       number += arrayString[i]
    }
   }
-  //arrayString.filter(e => e == /^[0-9]$/).join()
-  //string2 = string.split(number)[0]
-  console.log(concatString,number) 
- return +number+1
+  const numberLength = (+number).toString().length
+  const sliceString = string.slice(0,-numberLength)
+  console.log(sliceString,number) 
+ return sliceString+(+number+1)
 }
 
 console.log(incrementString("foobar000"), "foobar001")
-// console.log(incrementString("foobar999"), "foobar1000")
+console.log(incrementString("foobar999"), "foobar1000")
 // console.log(incrementString("foobar00999"), "foobar01000")
 // console.log(incrementString("foo"), "foo1")
 // console.log(incrementString("foobar001"), "foobar002")
