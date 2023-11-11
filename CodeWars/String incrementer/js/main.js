@@ -32,7 +32,7 @@ function incrementString(string) {
       number = arrayString[i]+number
    }
   }
-  const numberLength = (number).length-1 == (+number+1).toString().length?(number).length-1:(number).length
+  const numberLength = (number).length
   const sliceString = string.slice(0, -numberLength)
   console.log(numberLength, sliceString)
   console.log(sliceString,number) 
@@ -42,7 +42,7 @@ function incrementString(string) {
 console.log(incrementString("foobar000"), "foobar001")
 console.log(incrementString("foobar999"), "foobar1000")
 console.log(incrementString("foobar00999"), "foobar01000")
-// console.log(incrementString("foo"), "foo1")
+console.log(incrementString("foo"), "foo1")
 // console.log(incrementString("foobar001"), "foobar002")
 // console.log(incrementString("foobar1"), "foobar2")
 // console.log(incrementString("1"), "2")
