@@ -20,27 +20,28 @@ https://www.codewars.com/kata/54a91a4883a7de5d7800009c/train/javascript
 function incrementString(string) {
   let arrayString = string.split('')
   let concatString = string.split()
-  let number = 0
+  let number =''
   const regex = new RegExp("[0-9]",i)
   for (var i = arrayString.length - 1; i >= 0; --i) {
-    console.log(arrayString[i], arrayString[i-1])
+    console.log(arrayString, arrayString[i], arrayString[i-1])
     if (regex.test(+arrayString[i]) && regex.test(+arrayString[i-1])) {
-      number +=arrayString[i]
-      console.log("this")
+      number = arrayString[i]+number
+      console.log("this", number)
     } else if (regex.test(+arrayString[i])) {
-      console.log("that")
-      number += arrayString[i]
+      console.log("that", number)
+      number = arrayString[i]+number
    }
   }
-  const numberLength = (+number).toString().length
-  const sliceString = string.slice(0,-numberLength)
+  const numberLength = (number).length-1 == (+number+1).toString().length?(number).length-1:(number).length
+  const sliceString = string.slice(0, -numberLength)
+  console.log(numberLength, sliceString)
   console.log(sliceString,number) 
  return sliceString+(+number+1)
 }
 
 console.log(incrementString("foobar000"), "foobar001")
 console.log(incrementString("foobar999"), "foobar1000")
-// console.log(incrementString("foobar00999"), "foobar01000")
+console.log(incrementString("foobar00999"), "foobar01000")
 // console.log(incrementString("foo"), "foo1")
 // console.log(incrementString("foobar001"), "foobar002")
 // console.log(incrementString("foobar1"), "foobar2")
